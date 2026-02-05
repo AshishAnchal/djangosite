@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Sub by POST method</title>
+</head>
+<body>
+<h1> Addition and Substraction by POST method</h1>
+<h2> {{a}} and {{b}}  = {{result}} </h2>
+
+<form method="POST">
+    {% csrf_token %}
+    A<input type = "number" value = {{a}} name = "a">
+    <br>
+    B <input type = "number" value = {{b}} name = "b">
+    <br>
+    <input type="submit" value = "add" name = "option">
+    <br>
+    <input type = "submit" value = "sub" name ="option">
+
+</form>
+</body>
+</html>

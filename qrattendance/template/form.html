@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Form</title>
+    <title>Sell</title>
 </head>
 <body>
 
@@ -11,21 +11,45 @@
     <form action="/data">
         <label>
             Name:
-            <input name="uname" type="text" ></label>
+            <input name="name" type="text" ></label>
         <br><br>
 
         <label>
-            Registration No:
-            <input name="unumber" type="number">
+            Password
+            <input name="pass" type="password">
         </label>
         <br><br>
-        <input value="today" checked name="iradio" type="radio">today</input>
+                <label>
+            Address
+            <input name="Add" type="text">
+        </label>
+         <br><br>
+        <label>
+        <input value="Dell" checked name="iradio" type="radio">Dell</input>
+        </label>
+       
+        <label>
+        <input value="Lenovo" name="iradio" type="radio">Lenovo</input>
+        </label>
+        <label>
+        <input value="HP" name="iradio" type="radio">HP</input>
+        </label>
         <br>
-        <input value="tomorrow" name="iradio" type="radio">tomorrow</input>
-        <br>
+        <label> <input type="checkbox" name="on" value="pend" /> PenDrive</label>
+        <label> <input type="checkbox" name="off" value="head" /> Headphone</label>
+        <br><br>
+        <select name="drop" required>
+        <option value="">Protection</option>
+        <option value="Screen">Screen</option>
+        <option value="Body">Body</option>
+        <option value="None">None</option>
+        </select>
+        <br><br>
+
         <button type="submit">Submit</button>
     </form>
 </div>
+
 
 </body>
 </html>

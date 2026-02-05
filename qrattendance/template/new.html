@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <h1>{{ result }}</h1>
+    <form action="/total">
+      A<input value="{{a}}" name="enta" type="number" /> <br />
+      <br />
+      B<input value="{{b}}" name="entb" type="number" /> <br /><br />
+      <select name="rad" required>
+        <option value="">Operate</option>
+        <option value="add">Add</option>
+        <option value="sub">Sub</option>
+        <option value="Mux">Mux</option>
+        <option value="Div">Div</option>
+      </select>
+
+      <br />
+      <br />
+      <input value="check" type="submit" />
+    </form>
+</body>
+</html>

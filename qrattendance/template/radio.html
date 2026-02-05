@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>{{ result }}</h1>
+    <form action="/radio">
+      A <input value="{{a}}" name="enta" type="number" /> <br /><br />
+      B <input value="{{b}}" name="entb" type="number" /> <br /><br />
+
+      <label> <input type="checkbox" name="op" value="add" /> Add </label><br />
+      <label> <input type="radio" name="op" value="sub" /> Sub </label><br />
+      <select name="op" required>
+        <option value="">Operate</option>
+        <option value="Mux">Mux</option>
+      <input type="submit" value="Check" />
+    </form>
+  </body>
+</html>

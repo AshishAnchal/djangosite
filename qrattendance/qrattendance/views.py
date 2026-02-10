@@ -49,17 +49,19 @@ def open(request):
     return render(request, 'form.html')
 
 def data(request):
-    print("data")
-    name = request.GET['name']
-    pas = request.GET['pass']
-    add = request.GET['Add']
-    brand = request.GET['iradio']
-    a = request.GET['on']
-    r = request.GET['off']
+    if request.GET:
+        
+        print("data")
+        name = request.GET['name']
+        pas = request.GET['pass']
+        add = request.GET['Add']
+        brand = request.GET['iradio']
+        a = request.GET['on']
+        r = request.GET['off']
     
-    prot = request.GET['drop']
+        prot = request.GET['drop']
 
-    print(name, pas, add,a,r, brand, prot)
+        print(name, pas, add,a,r, brand, prot)
     return render(request,'form.html')
 
 
@@ -85,3 +87,71 @@ def merge(request):
         elif cmd=="Sub":
             result=a-b
     return render (request,'merge.html',{"a":a,"b":b,"result":result})        
+
+def form1(request):
+    a=0
+    b=0
+    result=""
+    if request.POST:
+        a=int(request.POST['a'])
+        b=int(request.POST['b'])
+        cmd=request.POST['cmd']
+        # print(cmd)
+        if cmd=="Add":
+            result=a+b
+        elif cmd=="Sub":
+            result=a-b
+    return render (request,'form1.html',{"a":a,"b":b,"result":result}) 
+
+
+def check(request):
+
+    result = {
+        100: "Pass",101: "Fail",102: "Pass", 103: "Fail",}
+    roll=""
+    
+    if request.POST:
+        roll=int(request.POST['r'])
+        result=result.get(roll,"Not found")
+        print(roll)    
+        
+    return render(request, "class.html", {"roll": roll,"result":result})
+
+def veg(request):
+
+    vegetables = {
+        "Potato":"20kg","Brinjal":"15kg"}
+    cod=""
+    
+    if request.POST:
+        cod=(request.POST['a'])
+        print(cod)
+        vegetables=vegetables.get(cod,"Not found")
+    
+        
+    return render(request, "veg.html", {"cod": cod,"vegetables":vegetables})
+
+def sessionadd(request):
+    a=0
+    if request.POST:
+        
+     a=request.POST['enta']
+     b=request.POST['entb']
+     session=request.session
+     session["name"]=a
+     print(session["name"],b)
+    return render(request,"form2.html")
+def sessionremove(request):
+    session=request.session
+    session.pop("name")
+    return HttpResponse("Session Remove")
+
+def sessionview(request):
+    session=request.session
+    name=request.session["name"]
+    if name is None:
+        name="None"
+    return HttpResponse("Session View "+name)
+
+def dologin(request):
+    return render(request,"login.html")

@@ -11,4 +11,11 @@ urlpatterns = [
     path("chek/",views.chek),
     path('now/',views.now),
     path('merge/',views.merge),
+    path('form1',views.form1),
+    path('check/',views.check),
+    path('veg/',views.veg),
+    path('sessionadd/',views.sessionadd),
+    path('sessionremove/',views.sessionremove),
+    path('sessionview/',views.sessionview),
+    path('dologin/',views.dologin)
 ]

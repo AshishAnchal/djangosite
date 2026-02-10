@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+         A <input value="{{a}}" type="number" name="a"/> <br><br>
+         B <input value="{{b}}" type="number" name="b"/><br><br>
+         <input type="radio" name="cmd" value="Add"> Add
+         <input type="radio" name="cmd" value="Sub"> Sub
+         <br><br>
+         <h1>Result &nbsp;&nbsp;{{result}}</h1>
+         <br><br>
+         <input type="submit" value="check">
+    </form>
+</body>
+</html>

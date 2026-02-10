@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+    Enter your roll no. <input type="number" name="r" value="{{roll}}">
+    <br><br>
+    <h1>Result &nbsp;&nbsp;{{result}}</h1>
+    <br><br>
+    <input type="submit" value="check"/>
+    </form>
+</body>
+</html>

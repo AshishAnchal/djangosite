@@ -17,5 +17,7 @@ urlpatterns = [
     path('sessionadd/',views.sessionadd),
     path('sessionremove/',views.sessionremove),
     path('sessionview/',views.sessionview),
-    path('dologin/',views.dologin)
+    path('dologin/',views.dologin),
+    path('protected/',views.protected),
+    path('dologout/',views.dologout),
 ]

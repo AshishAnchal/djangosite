@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <style>
+        img{
+            width: 100px;
+        }
+    </style>
+  </head>
+  <body>
+    
+    {% load static %}
+    <h1>Welcome {{username}}{{image}}</h1>
+    <h1>image</h1>
+    <!-- <img src="{% static 'Ashish.jpg'%}" alt="" /> -->
+    <h1>{{username}}</h1>
+    <img src="/static/{{ image }}">
+    <a href="/dologout/">Log out</a>
+  </body>
+</html>

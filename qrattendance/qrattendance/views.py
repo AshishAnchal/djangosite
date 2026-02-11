@@ -1,8 +1,8 @@
 from  datetime import datetime
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse,redirect
 def hello(request):
     
-    return render(request,"images.html",{"greeting":"Good Morning"})
+    return render(request,"images.html",{"greeting":"Good Morning","image":"Ashish.jpg"})
 def result(request):
     a=0
     b=0
@@ -154,4 +154,33 @@ def sessionview(request):
     return HttpResponse("Session View "+name)
 
 def dologin(request):
-    return render(request,"login.html")
+    result=""
+    username=""
+    pwd=""
+    uname={"Ashish":"1234","Aryan":"1234"}
+    if request.POST:
+        username=request.POST['enta']
+        pwd=request.POST['entb']
+        result=uname.get(username,None)
+        if result is None:
+            return render(request,"login.html",{"result":"Invalid","username":username,"pwd":pwd})
+        if pwd==result:
+              session=request.session
+              session['username']=username
+              redirect("/protected")
+              return render(request,"show.html",{"username":username,"image":username + ".jpg"})
+
+        return render(request,"login.html",{"result":"Invalid","username":username,"pwd":pwd})
+    return render(request,"login.html",{"result":"","username":"","pwd":""})
+        
+def protected(request):
+    session=request.session
+    username=request.session.get("username")
+    if username is None:
+        username=""
+        return redirect("/dologin",{"username":username,"image":username + ".jpg"})       
+    # return render(request,"show.html")
+def dologout(request):
+    session=request.session
+    session.pop("username")
+    return redirect("/dologin")
